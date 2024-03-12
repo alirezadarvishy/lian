@@ -3,8 +3,8 @@
 Contributors: wipna
 Requires at least: 5.9
 Tested up to: 6.4
-Stable tag: 1.0.0
-Version: 1.0.0
+Stable tag: 1.0.2
+Version: 1.0.2
 Requires PHP: 7.0
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -20,5 +20,5 @@ Lian WordPress theme is licensed under the GPL3.
 
 == Changelog ==
 
-= 1.0.0
+= 1.0.2
 * Initial Public Release

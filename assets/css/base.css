@@ -404,6 +404,10 @@ header.site-header .header-nav .headerrow{
 	color: #616161;
 	cursor: default;
 	position: relative;
+	border-radius: 4px;
+}
+.header-nav > ul > li:hover > a{
+	color:var(--link-hover-color)
 }
 .header-nav ul li.has-child{
 	position:relative;
@@ -413,6 +417,29 @@ header.site-header .header-nav .headerrow{
 	width: 100%;
 	box-sizing: border-box;
 	text-align: left;
+}
+.header-nav .menu > ul > li:hover > a{
+	color:var(--link-hover-color)
+}
+.header-nav ul li.page_item_has_children a{
+	padding-right:20px;
+}
+.header-nav ul li.page_item_has_children > a::after{
+	font-family:'lian';
+	content: '\E802';
+	color: var(--link-color);
+	position: absolute;
+	transform: rotate(-90deg);
+	right: 7px;
+}
+.header-nav ul li.page_item_has_children:hover a::after{
+	color: var(--link-hover-color);
+}
+.header-nav ul > li.page_item_has_children ul li.page_item_has_children > a::after{
+	color: var(--button-color);
+	transform: rotate(180deg);
+	right: 10px;
+	top: 5px;
 }
 .header-nav ul li ul li a{
 	padding:4px 8px;
@@ -657,17 +684,40 @@ header.site-header .header-nav .headerrow{
 	background: #0000;
 }
 .header-nav ul li ul{
-	display:none;
+	opacity:0;
 	transition: 0.3s;
 	z-index:9;
+	display:block;
+	position: absolute;
+	top:45px;
+	background: var(--button-bg-color);
+	width:100%;
+	min-width: 225px;
+	left: 0;
+	visibility: hidden;
+	border-radius: 4px;
+	box-shadow: 0 0 15px rgb(0 0 0 / 20%);
+	background: color-mix(in srgb, var(--button-bg-color) 80%, transparent);
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(1999900px);
+	height: 0;
+}
+.header-nav ul li > ul li a{
+	color:var(--button-color);
 }
 .header-nav ul li:hover > ul{
-	display:block;
-	position:absolute;
-	top:45px;
-	background: var(--second-color);
-	width:100%;
-	right:0;
+	opacity:1;
+	visibility: visible;
+	height: auto;
+}
+.header-nav ul li:hover > ul > li:hover{
+	background: var(--button-bg-color-hover);
+	color: var(--button-color-hover);
+}
+.header-nav ul li > ul > li ul{
+	right: calc(-100% - 5px);
+	left: initial;
+	top:0;
 }
 .lian-nav-active{
 	position:absolute;
