@@ -283,6 +283,9 @@ header.site-header .headerrow .header-right-side{
 	align-items: center;
 	justify-content: center;
 }
+header.site-header .headerrow .mobile-menu{
+	display:none;
+}
 header.site-header .header-branding{
 	position: relative;
 	width: 100%;
@@ -1737,6 +1740,7 @@ position: absolute;
 		justify-content: space-between;
 	}
 	header.site-header .headerrow .mobile-menu{
+		display:block;
 		font-size: 4vw;
 		font-weight: 400;
 		z-index: 9;
