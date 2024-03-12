@@ -478,6 +478,9 @@ header.site-header .header-nav .menu.show-mobile-menu{
 }
 header.site-header .header-nav .menu.show-mobile-menu > ul{
 	flex-direction: column;
+	padding-top: 90px;
+}
+.admin-bar header.site-header .header-nav .menu.show-mobile-menu > ul{
 	padding-top: 122px;
 }
 header.site-header.sticky-do .header-nav .menu.show-mobile-menu > ul{
@@ -1461,6 +1464,9 @@ select{
     float: left;
 }
 /***Comments***/
+.comments-area{
+	padding:16px;
+}
 .comments-area ul.comments{
 	list-style:none;
 	padding-left:0;
@@ -1740,7 +1746,7 @@ position: absolute;
 		justify-content: space-between;
 	}
 	header.site-header .headerrow .mobile-menu{
-		display:block;
+display:block;
 		font-size: 4vw;
 		font-weight: 400;
 		z-index: 9;
@@ -1750,6 +1756,12 @@ position: absolute;
 	.container{
 		max-width:100%;
 		min-width:100%;
+	}
+	.admin-bar header.site-header.sticky-do{
+		top: 46px;
+	}
+	.admin-bar header.site-header.sticky-do .header-nav .menu.show-mobile-menu > ul{
+		padding-top: 76px;
 	}
 	.elementor-tabs .elementor-tab-content, .elementor-tabs .elementor-tab-title{
 		text-align:right;
