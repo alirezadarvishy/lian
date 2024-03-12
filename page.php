@@ -21,7 +21,7 @@ $hide_sidebar = (!empty(get_post_meta( $post->ID,'lian_page_settings_sidebar', t
 ?>
 <main id="primary" class="site-main">
 <div class="container <?php echo $page_layout; ?>">
-	<div class="col <?php echo (!$hide_sidebar ? 's9':''); ?>">
+	<div class="col <?php echo (!$hide_sidebar ? 's9 ms12':''); ?>">
 	<?php if(! $hide_breadcrumb): ?>
 	    <div class="breadcrumb"><?php lian_get_breadcrumb(); ?></div>
 	<?php endif; ?>

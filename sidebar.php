@@ -8,7 +8,7 @@
  */
 
 ?>
-<div class="sidebar col s3">
+<div class="sidebar col s3 ms12">
 <div class="inner_sidebar">
 <?php
   if(lian_is_woocommerce_activated() && is_woocommerce()){

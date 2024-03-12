@@ -13,7 +13,7 @@ get_header();
 ?>
 <div class="container">
 	<main id="primary" class="site-main">
-		<div class="col <?php echo esc_attr($lian_show_sidebar === "1" ? 's9':''); ?>">
+		<div class="col <?php echo esc_attr($lian_show_sidebar === "1" ? 's9 ms12':''); ?>">
 			<section class="error-404 not-found">
 				<span>404</span>
 				<header class="page-header">

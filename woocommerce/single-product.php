@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 <div class="container">
-	<div class="col s9">
+	<div class="col s9 ms12">
 		<div class="lian-product-archive">
 			<?php
 				/**

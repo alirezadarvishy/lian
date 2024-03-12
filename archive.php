@@ -13,10 +13,10 @@ $lian_portfolio_archive_sidebar = lian_options('lian_portfolio_archive_sidebar')
 /* Sidebar & Col Size */
 if('post' === get_post_type() && $lian_blog_archive_sidebar === "1" ){
 	$show_sidebar = true;
-	$content_size = 's9';
+	$content_size = 's9 ms12';
 }elseif('portfolio' === get_post_type() && $lian_portfolio_archive_sidebar === "1" ){
 	$show_sidebar = true;
-	$content_size = 's9';
+	$content_size = 's9 ms12';
 }
 
 get_header();

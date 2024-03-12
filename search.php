@@ -11,7 +11,7 @@ get_header();
 ?>
 <div class="container">
 	<main id="primary" class="site-main ">
-		<div class="col <?php echo esc_attr($lian_blog_archive_sidebar === "1" ? 's9':''); ?>">
+		<div class="col <?php echo esc_attr($lian_blog_archive_sidebar === "1" ? 's9 ms12':''); ?>">
 
 		<?php if ( have_posts() ) : ?>
 
