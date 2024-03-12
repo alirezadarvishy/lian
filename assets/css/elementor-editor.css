@@ -1,0 +1,27 @@
+.elementor-loading-title::after{
+  content:'Lian theme';
+  position:absolute;
+  left:0;
+  right:0;
+  top: -70px;
+  font-size: 22px;
+  font-family: var(--e-a-font-family);
+  letter-spacing: 8px;
+}
+#elementor-panel-category-lian-elementor-widgets .elementor-element .icon i::after{
+  content: 'Lian';
+  background: #efefef;
+  color: #091540;
+  padding:2px;
+  border-radius:2px;
+  top:6px;
+  left:6px;
+  font-size:10px;
+  position:absolute;
+  font-family: tahoma;
+  transition: 0.2s;
+}
+#elementor-panel-category-lian-elementor-widgets .elementor-element:hover .icon i::after{
+  background: #091540;
+  color: #ffffff;
+}
