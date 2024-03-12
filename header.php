@@ -58,6 +58,7 @@ if(is_page()){
           )
         );
         ?>
+        <i class="mobile-menu lianf lian-bars"></i>
       </div>
     </div>
   </div>
