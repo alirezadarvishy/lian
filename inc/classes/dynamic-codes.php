@@ -90,6 +90,14 @@ class DynamicCodes{
 			}
 		';
 
+        // Theme Options
+        if(lian_options('lian_blog_archive_post_style') == "grid"){
+            $postsInRow = !empty(lian_options('lian_blog_archive_grid_in_row')) ? lian_options('lian_blog_archive_grid_in_row'):3;
+            if((int) $postsInRow !== 0) $postWidth = 100 / (int) $postsInRow;
+            else $postWidth = 3;
+            $css .= '.site-main .grid-style article{flex: 1 calc('.$postWidth.'% - 15px);}';
+        }
+
 		// Add Custom Css - Settings
 		$css .= (!empty(lian_options('lian_general_css')) ? lian_options('lian_general_css'): '');
 

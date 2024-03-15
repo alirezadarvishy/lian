@@ -380,7 +380,6 @@ a{
   display: inline-block;
   cursor: pointer;
   padding-left: 45px;
-  height: 15px;
   line-height: 15px;
   margin: 5px;
   font-size: 30px;
@@ -389,7 +388,24 @@ a{
   -ms-user-select: none;
   user-select: none;
 }
-
+.lian-options .switcher.icon-switcher .icon{
+  display: block;
+}
+.lian-options .icon:has(+ input:checked) svg{
+  fill: var(--second-color);
+}
+.lian-options .switcher.icon-switcher span{
+  font-size: 14px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+}
+.lian-options .switcher.icon-switcher .switcher__indicator{
+  display: block;
+  position: relative;
+  margin-top: 12px;
+}
 .lian-options .switcher input {
   display: none;
 }
@@ -409,6 +425,16 @@ a{
   animation-name: pulsein;
   -webkit-animation-duration: .3s;
   animation-duration: .3s;
+}
+.lian-options .icon-switcher .switcher__indicator::after {
+  -webkit-animation-name: half-pulsein;
+  animation-name: half-pulsein;
+}
+
+.lian-options .icon-switcher .switcher__indicator::after{
+  width: 10px;
+  height: 10px;
+  top: 2px;
 }
 
 .lian-options .switcher__indicator::before {
@@ -434,6 +460,10 @@ a{
   animation-duration: .3s;
 }
 
+.lian-options .icon-switcher input:checked+.switcher__indicator::after {
+  -webkit-animation-name: half-pulseout;
+  animation-name: half-pulseout;
+}
 .lian-options input:checked+.switcher__indicator::before {
   background-color: var(--second-color);
 }
@@ -495,6 +525,63 @@ a{
     top: 0px;
     height: 15px;
     width: 32px;
+  }
+}
+
+@-webkit-keyframes half-pulsein {
+  0%, 100% {
+    top: 4px;
+    height: 10px;
+    width: 10px;
+  }
+
+  50% {
+    top: 4px;
+    height: 7px;
+    width: 15px;
+  }
+}
+
+@keyframes half-pulsein {
+  0%, 100% {
+    top: 4px;
+    height: 10px;
+    width: 10px;
+  }
+
+  50% {
+    top: 4px;
+    height: 7px;
+    width: 15px;
+  }
+}
+
+
+@-webkit-keyframes half-pulseout {
+  0%, 100% {
+    top: 2px;
+    height: 10px;
+    width: 10px;
+  }
+
+  50% {
+    top: 0px;
+    height: 7px;
+    width: 15px;
+  }
+}
+
+@keyframes half-pulseout {
+  0%, 100% {
+    top: 2px;
+    height: 10px;
+    width: 10px;
+  }
+
+  50% {
+    top: 2px;
+    height: 7px;
+    width: 30px;
   }
 }
 
@@ -913,7 +1000,7 @@ a{
     width:100%;
     flex-direction: column;
   }
-  .lian-options select, .lian-options .select2{
+  .lian-options select, .lian-options .select2{ 
     width: 100% !important;
   }
   #typographysection > .col{

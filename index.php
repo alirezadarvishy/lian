@@ -12,11 +12,13 @@
  * @package lian
  */
 $lian_blog_archive_sidebar = lian_options('lian_blog_archive_sidebar');
+$post_style = !empty(lian_options('lian_blog_archive_post_style')) ? lian_options('lian_blog_archive_post_style').'-style' : 'grid-style';
+
 get_header();
 ?>
 	<div class="container">
 		<main id="primary" class="site-main">
-			<div class="col <?php echo esc_attr($lian_blog_archive_sidebar === "1" ? 's9 ms12':''); ?>">
+			<div class="col <?php echo $post_style . ' ' . esc_attr($lian_blog_archive_sidebar === "1" ? 's9 ms12':''); ?>">
 				<?php
 				if ( have_posts() ) : 
 				    if(!is_home()): ?>

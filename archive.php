@@ -9,6 +9,7 @@ $show_sidebar = false;
 $content_size = '';
 $lian_blog_archive_sidebar = lian_options('lian_blog_archive_sidebar');
 $lian_portfolio_archive_sidebar = lian_options('lian_portfolio_archive_sidebar');
+$post_style = !empty(lian_options('lian_blog_archive_post_style')) ? lian_options('lian_blog_archive_post_style').'-style' : 'grid-style';
 
 /* Sidebar & Col Size */
 if('post' === get_post_type() && $lian_blog_archive_sidebar === "1" ){
@@ -23,7 +24,7 @@ get_header();
 ?>
 	<div class="container">
 		<main id="primary" class="site-main">
-			<div class="col <?php echo esc_attr($content_size); ?>">
+			<div class="col <?php echo $post_style . ' ' .  esc_attr($content_size); ?>">
 				<?php
 				if ( have_posts() ) : 
 				    if(!is_home()):
