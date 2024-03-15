@@ -119,10 +119,22 @@ jQuery(document).ready(function($)  {
   });
 
   /** Q & A Box **/
-  jQuery(document).on('click','.qa-question',function(){
-    jQuery(this).parent().toggleClass('active');
-    jQuery(this).parent().find('.qa-answer').toggle();
+  $(document).on('click','.qa-question',function(){
+    $(this).parent().toggleClass('active');
+    $(this).parent().find('.qa-answer').toggle();
   });
+  
+  /** Mobile Menu **/
+  $('.mobile-menu').on('click',function(){
+    $(this).parent().find('.menu').toggleClass('show-mobile-menu');
+  });
+
+  $('.page_item_has_children > a').on('click',function(){
+      if($(window).width() < 991){
+          return false;
+      }
+  });
+  
 
 });
 
