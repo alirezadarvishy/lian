@@ -158,7 +158,7 @@ require LIAN_DIR . '/inc/options/functions.php';
 /**
  * TGM Plugin Activation
  */
-require LIAN_MODULE_DIR . 'plugins/helper.php';
+//require LIAN_MODULE_DIR . 'plugins/helper.php';
 
 
 /**
@@ -167,6 +167,7 @@ require LIAN_MODULE_DIR . 'plugins/helper.php';
 require LIAN_DIR . '/inc/classes/fonts.php';
 require LIAN_DIR . '/inc/classes/dynamic-codes.php';
 require LIAN_DIR . '/inc/classes/import.php';
+require LIAN_DIR . '/inc/classes/api_helper.php';
 
 /**
  * Metaboxes 
@@ -350,21 +351,6 @@ function lian_array_insert(&$array, $position, $insert)
         );
     }
 }
-
-
-/**
- * Show Necesary Notices
- */
-function lian_theme_notice() {
-	if(!lian_is_core_activated()):
-    ?>
-    <div class="notice lian-notice">
-        <?php _e( 'To have more features, you can install Lian Core plugin.', 'lian' ); ?>
-    </div>
-    <?php
-	endif;
-}
-add_action( 'admin_notices', 'lian_theme_notice' );
 
 
 /**

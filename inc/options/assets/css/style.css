@@ -871,6 +871,22 @@ a{
   padding: 18px;
   width: 100%;
 }
+.lian-dashboard .row .col .col-content.revert-colors{
+  background: var(--main-color);
+}
+.lian-dashboard .row .col .col-content.revert-colors b,
+.lian-dashboard .row .col .col-content.revert-colors p{
+  color: #fff;
+}
+.lian-dashboard .row .col .col-content.revert-colors a{
+  background:#fff;
+  color: var(--main-color);
+}
+.lian-dashboard .row .col .col-content.elementor-box{
+  background: #92003b;
+  background: rgb(99,45,226);
+  background: linear-gradient(156deg, rgb(41 22 85) 0%, rgba(146, 0, 59, 1) 100%);
+}
 .lian-dashboard .row .col .col-content:empty{
   display:none;
 }

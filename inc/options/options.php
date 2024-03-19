@@ -6,6 +6,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 use Lian\DynamicCodes;
+use Lian\ApiHelper;
 
 if ( ! class_exists( 'LIAN_Theme_Dashboard' ) ) {
 
@@ -105,8 +106,8 @@ if ( ! class_exists( 'LIAN_Theme_Dashboard' ) ) {
 							</div>
 						</div>
 						<div class="col">
-							<div class="col-content mb-16">
-								<b><?php _e( 'Elementor Editor', 'lian' ); ?></b>
+							<div class="col-content mb-16 revert-colors elementor-box">
+								<b><img src="<?php echo LIAN_ASSETS_URI . 'img/elementor-logo-w.png';?>" width="200"></b>
 								<p><?php _e( 'Change headers, footers, pages and everything with Elementor. Are yo ready?', 'lian'); ?></p>
 								<a href="?page=lian-elementor" class="btn btn-primary dib mt-16"><?php _e('Elementor Editor', 'lian' ); ?></a>
 							</div>
@@ -124,12 +125,13 @@ if ( ! class_exists( 'LIAN_Theme_Dashboard' ) ) {
 							<div class="col-content mb-16 <?php echo esc_attr($update_available_class); ?>">
 								<b><?php _e( 'Updates', 'lian' ); ?></b>
 								<?php
-								$lian_new_version = 999;
-								if(LIAN_VERSION >= $lian_new_version): ?>
-									<p><?php _e( 'Your theme is up to date. Enjoy!', 'lian' ); ?></p>
-								<?php else: ?>
-									<p><?php _e( 'Version', 'lian' ); ?> <?php echo esc_attr($lian_new_version); ?> <?php _e( 'is now Available!!', 'lian' ); ?></p>
-								<?php endif; ?>
+    								$theme_information = new ApiHelper();
+    								$lian_new_version = $theme_information->get_lian_theme_version();
+    								if(!$lian_new_version || LIAN_VERSION >= $lian_new_version): ?>
+        									<p><?php _e( 'Your theme is up to date. Enjoy!', 'lian' ); ?></p>
+        								<?php else: ?>
+        									<p><?php _e( 'Version', 'lian' ); ?> <?php echo esc_attr($lian_new_version); ?> <?php _e( 'is now Available!!', 'lian' ); ?></p>
+    								<?php endif; ?>
 							</div>
 						</div>
 						<div class="col">
@@ -199,13 +201,13 @@ if ( ! class_exists( 'LIAN_Theme_Dashboard' ) ) {
 									<div>
 										<?php if(!lian_is_core_activated()): ?>
 											<div class="notice lian-notice">
-												<?php _e('Lian Core plugin is required for this section. Please active the Lian Core plugin.','lian'); ?>
+												<?php _e('<a href="https://wipna.com/lian-core/" target="_blank">Lian Core</a> plugin is required for this section. <a href="https://wipna.com/lian-core/" target="_blank">Click Here to get the Lian Core plugin right now!</a>','lian'); ?>
 											</div>
 										<?php endif; ?>
 
 										<?php if(!lian_is_elementor_activated()): ?>
 											<div class="notice lian-notice">
-												<?php _e('Elementor plugin is required for this section. Please active the Elementor plugin.','lian'); ?>
+												<?php _e('Free Elementor plugin is required for this section. Please install and activate the Elementor plugin through Plugins » Add Plugin.','lian'); ?>
 											</div>
 										<?php endif; ?>
 									</div>
