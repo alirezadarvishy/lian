@@ -10,7 +10,7 @@ $lian_blog_archive_sidebar = lian_options('lian_blog_archive_sidebar');
 get_header();
 ?>
 <div class="container">
-	<main id="primary" class="site-main ">
+	<main class="site-main" id="wp--skip-link--target">
 		<div class="col <?php echo esc_attr($lian_blog_archive_sidebar === "1" ? 's9 ms12':''); ?>">
 
 		<?php if ( have_posts() ) : ?>

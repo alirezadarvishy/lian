@@ -24,7 +24,7 @@ if('post' === get_post_type() && $lian_blog_single_sidebar === "1" ){
 get_header();
 ?>
 <div class="container">
-	<main id="primary" class="site-main">
+	<main class="site-main" id="wp--skip-link--target">
 		<div class="col <?php echo esc_attr($content_size); ?>">
 			<?php
 				while ( have_posts() ) :

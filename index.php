@@ -17,7 +17,7 @@ $post_style = !empty(lian_options('lian_blog_archive_post_style')) ? lian_option
 get_header();
 ?>
 	<div class="container">
-		<main id="primary" class="site-main">
+		<main class="site-main" id="wp--skip-link--target">
 			<div class="col <?php echo $post_style . ' ' . esc_attr($lian_blog_archive_sidebar === "1" ? 's9 ms12':''); ?>">
 				<?php
 				if ( have_posts() ) : 

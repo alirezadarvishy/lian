@@ -19,7 +19,7 @@ $page_layout = (!empty(get_post_meta($post->ID, 'lian_page_settings_page_layout'
 $hide_breadcrumb = (!empty(get_post_meta($post->ID, 'lian_page_settings_title', true)) ? get_post_meta($post->ID, 'lian_page_settings_title', true) : 1);
 $hide_sidebar = (!empty(get_post_meta( $post->ID,'lian_page_settings_sidebar', true )) ? get_post_meta($post->ID, 'lian_page_settings_sidebar', true) : 1);
 ?>
-<main id="primary" class="site-main">
+<main class="site-main" id="wp--skip-link--target">
 <div class="container <?php echo $page_layout; ?>">
 	<div class="col <?php echo (!$hide_sidebar ? 's9 ms12':''); ?>">
 	<?php if(! $hide_breadcrumb): ?>

@@ -26,7 +26,7 @@ if(is_page()){
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-
+<a class="skip-link screen-reader-text" href="#wp--skip-link--target"><?php _e('Skip to content','lian'); ?></a>
 <header id="masthead" class="site-header <?php echo esc_attr($sticky_header === "1" ? 'sticky':''); ?> <?php echo isset($header_transparent) && $header_transparent ? 'transparent-header' : ''; ?>">
   <?php
   if(lian_is_elementor_activated() && lian_options('lian_cs_header') === "1" && !empty(lian_options('lian_cs_header_name'))){
@@ -34,19 +34,17 @@ if(is_page()){
   }
   else{ ?>
   <div class="container">
-    <?php
-      if(!empty(lian_options('lian_general_main_logo'))){
-        $logo_url = lian_options('lian_general_main_logo');
-      }else{
-        $logo_url = get_template_directory_uri() . '/assets/img/lian-logo-white-transparent.png';
-      }
-    ?>
     <div class="headerrow">
       <div class="header-right-side">
         <div class="header-branding">
-          <a href="<?php echo esc_url(home_url( '/' )); ?>">
-            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr(get_bloginfo( 'name' )); ?>"/>
-          </a>
+          <a href="<?php echo esc_url(home_url( '/' )); ?>"><?php
+              if(!empty(lian_options('lian_general_main_logo'))){
+                $logo_url = lian_options('lian_general_main_logo');
+                echo '<img src="'.esc_url($logo_url).'" alt="'.esc_attr(get_bloginfo( 'name' )).'"/>';
+              }else{
+                echo get_bloginfo( 'name' );
+              }
+            ?></a>
         </div>
       </div>
       <div class="header-nav">
@@ -58,7 +56,7 @@ if(is_page()){
           )
         );
         ?>
-        <i class="mobile-menu lianf lian-bars"></i>
+        <a href="#" class="mobile-menu lianf lian-bars"></a>
       </div>
     </div>
   </div>

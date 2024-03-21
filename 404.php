@@ -12,7 +12,7 @@ $lian_notfound_sidebar = lian_options('lian_notfound_sidebar');
 get_header();
 ?>
 <div class="container">
-	<main id="primary" class="site-main">
+	<main class="site-main" id="wp--skip-link--target">
 		<div class="col <?php echo esc_attr($lian_show_sidebar === "1" ? 's9 ms12':''); ?>">
 			<section class="error-404 not-found">
 				<span>404</span>
