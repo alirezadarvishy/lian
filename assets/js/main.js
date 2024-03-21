@@ -127,6 +127,13 @@ jQuery(document).ready(function($)  {
   /** Mobile Menu **/
   $('.mobile-menu').on('click',function(){
     $(this).parent().find('.menu').toggleClass('show-mobile-menu');
+    return false;
+  });
+  $('.mobile-menu').on('keypress',function(e){
+      if(e.which == 13) {
+        $(this).parent().find('.menu').toggleClass('show-mobile-menu');
+      }
+      return false;
   });
 
   $('.page_item_has_children > a').on('click',function(){

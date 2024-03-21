@@ -314,6 +314,10 @@ header.site-header .header-branding{
 	padding-left: 0;
 	z-index: 9;
 }
+header.site-header .header-branding a{
+	font-size: 1.8rem;
+	font-weight: bold;
+}
 header.site-header .header-branding img{
 	width:110px;
 	display: block;
@@ -507,7 +511,7 @@ header.site-header .header-nav .menu.show-mobile-menu > ul{
 header.site-header.sticky-do .header-nav .menu.show-mobile-menu > ul{
 	padding-top: 90px;
 }
-header.site-header .header-nav .menu.show-mobile-menu + i::before{
+header.site-header .header-nav:has(.show-mobile-menu) a.mobile-menu::before{
 	content:'\E806'
 }
 .content{
@@ -767,6 +771,7 @@ header.site-header .header-nav .menu.show-mobile-menu + i::before{
 .header-nav ul li > ul li a{
 	color:var(--button-color);
 }
+.header-nav ul li:has(a:focus) > ul,
 .header-nav ul li:hover > ul{
 	opacity:1;
 	visibility: visible;
@@ -1780,6 +1785,13 @@ position: absolute;
 	}
 	.site-main .grid-style article{
 		flex: 1 100% !important;
+	}
+	.header-nav ul li > ul > li ul{
+		right: 0;
+		position: relative;
+	}
+	.header-nav ul li{
+		flex-direction:column;
 	}
 }
 @media screen and (max-width:768px){

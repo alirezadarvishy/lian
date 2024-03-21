@@ -97,7 +97,10 @@ class DynamicCodes{
             else $postWidth = 3;
             $css .= '.site-main .grid-style article{flex: 1 calc('.$postWidth.'% - 15px);}';
         }
-
+        
+        $linkTextDecoration = !empty(lian_options('lian_style_link_textdeco')) ? lian_options('lian_style_link_textdeco'):'none';
+        $css .= 'a{text-decoration:'.$linkTextDecoration.'}';
+        
 		// Add Custom Css - Settings
 		$css .= (!empty(lian_options('lian_general_css')) ? lian_options('lian_general_css'): '');
 
