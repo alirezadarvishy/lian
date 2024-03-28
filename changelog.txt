@@ -1,5 +1,5 @@
 *** Lian WordPress Theme ***
 
-Version 1.06
+Version 1.0.6
 
     * First release!
