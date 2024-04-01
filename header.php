@@ -16,12 +16,10 @@ if(is_page()){
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo get_bloginfo("description"); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="msapplication-TileColor" content="<?php echo esc_attr( $lian_style_primary_color ); ?>">
     <meta name="theme-color" content="<?php echo esc_attr( $lian_style_primary_color ); ?>">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
-<?php wp_head(); ?>
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
