@@ -3,8 +3,8 @@
 Contributors: wipna
 Requires at least: 5.9
 Tested up to: 6.4
-Stable tag: 1.7.1
-Version: 1.7.1
+Stable tag: 1.7.2
+Version: 1.7.2
 Requires PHP: 7.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -52,5 +52,5 @@ License: Healthy Living
 
 == Changelog ==
 
-= 1.7.1
+= 1.7.2
 * Initial Public Release
