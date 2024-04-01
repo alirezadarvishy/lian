@@ -500,15 +500,16 @@ header.site-header .header-nav .menu.show-mobile-menu{
 	top: 0;
 	padding: 16px;
 	box-sizing: border-box;
+	padding-top: 141px;
 }
-header.site-header .header-nav .menu.show-mobile-menu > ul{
+header.site-header .header-nav .menu.show-mobile-menu{
 	flex-direction: column;
 	padding-top: 90px;
 }
-.admin-bar header.site-header .header-nav .menu.show-mobile-menu > ul{
+.admin-bar header.site-header .header-nav .menu.show-mobile-menu{
 	padding-top: 122px;
 }
-header.site-header.sticky-do .header-nav .menu.show-mobile-menu > ul{
+header.site-header.sticky-do .header-nav .menu.show-mobile-menu{
 	padding-top: 90px;
 }
 header.site-header .header-nav:has(.show-mobile-menu) a.mobile-menu::before{
@@ -1794,13 +1795,21 @@ position: absolute;
 		flex-direction:column;
 	}
 }
+@media screen and (max-width: 782px){
+    html {
+        margin-top: 0 !important;
+    }
+    body.admin-bar{
+        padding-top: 46px;
+    }
+}
 @media screen and (max-width:768px){
 	.container{
 		max-width:100%;
 		min-width:100%;
 	}
 	.admin-bar header.site-header.sticky-do{
-		top: 46px;
+		top: 0;
 	}
 	.admin-bar header.site-header.sticky-do .header-nav .menu.show-mobile-menu > ul{
 		padding-top: 76px;
@@ -1885,6 +1894,7 @@ position: absolute;
 		width: 100%;
 	}
 }
+
 @media(max-width:475px){
 	.header-nav .nav-mobile-content ul li ul.lian-megamenu{
 		display:none;
@@ -1894,5 +1904,16 @@ position: absolute;
     }
 	header.site-header .headerrow .mobile-menu{
 		font-size: 8vw;
+	}
+}
+
+@media(min-width:600px){
+	.admin-bar header.site-header.sticky-do {
+	    top: 46px;
+	}
+}
+@media(min-width:768px){
+	.admin-bar header.site-header.sticky-do {
+	    top: 32px;
 	}
 }

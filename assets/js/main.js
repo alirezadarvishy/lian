@@ -9,9 +9,9 @@ jQuery(document).ready(function($)  {
   });
 
   $('.sharebox-modal').on("click tap", function(e){
-        var container = $(".sharebox");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-            container.parent().hide();
+        var lianContainer = $(".sharebox");
+        if (!lianContainer.is(e.target) && lianContainer.has(e.target).length === 0) {
+          lianContainer.parent().hide();
         }
   });
 
@@ -60,9 +60,9 @@ jQuery(document).ready(function($)  {
 
 
   $(document).bind( "mouseup touchend", function(e){
-    var container = $('.nav-mobile-content');
-    var burger = $('.lian_hamburger_wrapper .hamburger');
-    if (!container.is(e.target) && container.has(e.target).length === 0 && !burger.is(e.target) && burger.has(e.target).length === 0)
+    var lianContainer = $('.nav-mobile-content');
+    var lianBurger = $('.lian_hamburger_wrapper .hamburger');
+    if (!lianContainer.is(e.target) && lianContainer.has(e.target).length === 0 && !lianBurger.is(e.target) && lianBurger.has(e.target).length === 0)
     {
       $('.lian_hamburger_wrapper .hamburger').removeClass('open');
       $('.lian_hamburger_wrapper .hamburger').addClass('close');
@@ -81,20 +81,20 @@ jQuery(document).ready(function($)  {
   });
 
   if($('.site-header.sticky').length > 0){
-    var stickySize = 0;
+    var lianStickySize = 0;
     
     if($("#wpadminbar").length > 0){
-      stickySize = stickySize + $("#wpadminbar").height();
+      lianStickySize = lianStickySize + $("#wpadminbar").height();
     }
     if($(".lian-notf").length > 0){
-      stickySize = stickySize + $('.lian-notf').height();
+      lianStickySize = lianStickySize + $('.lian-notf').height();
     }
     $(window).scroll(function (event) {
-      var scroll = $(window).scrollTop();
-      var header_height = $('.site-header.sticky').height();
-      if(scroll > stickySize){
+      var lianScroll = $(window).scrollTop();
+      var lianHeaderHeight = $('.site-header.sticky').height();
+      if(lianScroll > lianStickySize){
         $('.site-header.sticky').addClass('sticky-do');
-        $('.site-header.sticky').next().css({'padding-top':header_height});
+        $('.site-header.sticky').next().css({'padding-top':lianHeaderHeight});
       }else{
         $('.site-header.sticky').removeClass('sticky-do');
         $('.site-header.sticky').next().css({'padding-top':''});
@@ -141,34 +141,41 @@ jQuery(document).ready(function($)  {
           return false;
       }
   });
-  
+
+
+  const lianFocusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  const lianMenu = $('.headerrow');
+  const lianFirstFocusableElement = lianMenu.find(lianFocusableElements).first();
+  const lianLastFocusableElement = lianMenu.find(lianFocusableElements).last();
+
+  $(document).on('keydown', function(e) {
+
+    if (! lianMenu.find('.menu').hasClass('show-mobile-menu')) {
+      return;
+    }
+
+    let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+    if (!isTabPressed) {
+      return;
+    }
+
+    if (e.shiftKey) {
+      if ($(document.activeElement).is(lianFirstFocusableElement)) {
+        lianLastFocusableElement.focus();
+        e.preventDefault();
+      }
+    } else { 
+      if ($(document.activeElement).is(lianLastFocusableElement)) {
+        lianFirstFocusableElement.focus();
+        e.preventDefault();
+      }
+    }
+  });
 
 });
 
-function setCookie(cname, cvalue, exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  var expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
-function removeItemArray(arr, value) {
+function lianRemoveItemArray(arr, value) {
   var i = 0;
   while (i < arr.length) {
     if (arr[i] === value.toString()) {
