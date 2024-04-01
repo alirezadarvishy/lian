@@ -38,9 +38,9 @@ URL: https://stocksnap.io/photo/beach-sunning-QYAYBMI97Y
 Source: https://stocksnap.io/
 License: Travel Adventures
 
-URL: https://stocksnap.io/photo/family-playing-OM3BMW3VWF
+URL: https://stocksnap.io/photo/woman-beach-OQ7ZZXSTN7
 Source: https://stocksnap.io/
-License: Direct Media
+License: Travel Adventures
 
 URL: https://stocksnap.io/photo/people-woman-IX4W28VSKO
 Source: https://stocksnap.io/
