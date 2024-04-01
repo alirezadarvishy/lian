@@ -502,9 +502,13 @@ header.site-header .header-nav .menu.show-mobile-menu{
 	box-sizing: border-box;
 	padding-top: 141px;
 }
+
 header.site-header .header-nav .menu.show-mobile-menu{
 	flex-direction: column;
 	padding-top: 90px;
+}
+header.site-header .header-nav .menu.show-mobile-menu > ul{
+	flex-direction:column
 }
 .admin-bar header.site-header .header-nav .menu.show-mobile-menu{
 	padding-top: 122px;
@@ -1810,9 +1814,6 @@ position: absolute;
 	}
 	.admin-bar header.site-header.sticky-do{
 		top: 0;
-	}
-	.admin-bar header.site-header.sticky-do .header-nav .menu.show-mobile-menu > ul{
-		padding-top: 76px;
 	}
 	.elementor-tabs .elementor-tab-content, .elementor-tabs .elementor-tab-title{
 		text-align:right;
