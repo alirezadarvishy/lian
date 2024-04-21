@@ -110,7 +110,12 @@ function lian_scripts() {
 	// CSS Files
 	wp_enqueue_style( 'lian-style', get_stylesheet_uri(), array(), LIAN_VERSION );
 	wp_enqueue_style( 'lian-base-style', get_template_directory_uri() . '/assets/css/base.css', array(), LIAN_VERSION );
-
+    
+    // RTL CSS
+    if(is_rtl()){
+    	wp_enqueue_style( 'lian-base-rtl-style', get_template_directory_uri() . '/assets/css/base-rtl.css', array(), LIAN_VERSION );
+    }
+    
 	// JS Files
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'lian-main-js', get_template_directory_uri() . '/assets/js/main.js', array(), LIAN_VERSION, true );
@@ -159,7 +164,6 @@ require LIAN_DIR . '/inc/options/functions.php';
  * TGM Plugin Activation
  */
 //require LIAN_MODULE_DIR . 'plugins/helper.php';
-
 
 /**
  * Classes
@@ -470,12 +474,12 @@ add_action( 'wp_head', 'lian_pingback_header' );
 function lian_settings_assets() {
 
 		// Custom CSS - JS
-		wp_enqueue_style( 'dashboardcss',  get_template_directory_uri() . '/inc/options/assets/css/style.css','',LIAN_VERSION );
-		wp_enqueue_script( 'dashboardjs',  get_template_directory_uri() . '/inc/options/assets/js/dashboard.js','',LIAN_VERSION );
-		wp_enqueue_style( 'dashboard-select2-css',  get_template_directory_uri() . '/inc/options/assets/css/select2.min.css','',LIAN_VERSION );
-		wp_enqueue_script( 'dashboard-select2-js',  get_template_directory_uri() . '/inc/options/assets/js/select2.min.js','',LIAN_VERSION );
-		wp_enqueue_style( 'dashboard-sweetalert2_css',  get_template_directory_uri() . '/inc/options/assets/css/sweetalert2.min.css','',LIAN_VERSION );
-		wp_enqueue_script( 'dashboard-sweetalert2_js',  get_template_directory_uri() . '/inc/options/assets/js/sweetalert2.min.js','',LIAN_VERSION );
+		wp_enqueue_style( 'lian-dashboardcss',  get_template_directory_uri() . '/inc/options/assets/css/style.css','',LIAN_VERSION );
+		wp_enqueue_script( 'lian-dashboardjs',  get_template_directory_uri() . '/inc/options/assets/js/dashboard.js','',LIAN_VERSION );
+		wp_enqueue_style( 'lian-dashboard-select2-css',  get_template_directory_uri() . '/inc/options/assets/css/select2.min.css','',LIAN_VERSION );
+		wp_enqueue_script( 'lian-dashboard-select2-js',  get_template_directory_uri() . '/inc/options/assets/js/select2.min.js','',LIAN_VERSION );
+		wp_enqueue_style( 'lian-dashboard-sweetalert2_css',  get_template_directory_uri() . '/inc/options/assets/css/sweetalert2.min.css','',LIAN_VERSION );
+		wp_enqueue_script( 'lian-dashboard-sweetalert2_js',  get_template_directory_uri() . '/inc/options/assets/js/sweetalert2.min.js','',LIAN_VERSION );
 
 		// Color Picker
 		wp_enqueue_style( 'wp-color-picker');
@@ -486,31 +490,6 @@ function lian_settings_assets() {
 }
 add_action( 'admin_enqueue_scripts', 'lian_settings_assets' );
 
-/**
- * Disable requests to wp.org repository for this theme.
- */
-function lian_disable_wporg_request( $r, $url ) {
-
-	// If it's not a theme update request, bail.
-	if ( 0 !== strpos( $url, 'https://api.wordpress.org/themes/update-check/1.1/' ) ) {
-			return $r;
-		}
-
-		// Decode the JSON response
-		$themes = json_decode( $r['body']['themes'] );
-
-		// Remove the active parent and child themes from the check
-		$parent = get_option( 'template' );
-		$child = get_option( 'stylesheet' );
-		unset( $themes->themes->$parent );
-		unset( $themes->themes->$child );
-
-		// Encode the updated JSON response
-		$r['body']['themes'] = json_encode( $themes );
-
-		return $r;
-}
-add_filter( 'http_request_args', 'lian_disable_wporg_request', 5, 2 );
 
 /**
  * Modify Read More Text
