@@ -19,14 +19,14 @@
     <div class="row">
       <div class="col-4"><?php _e( 'Custom CSS', 'lian' ); ?></div>
       <div class="col">
-        <textarea class="lian-code" name="lian_options[lian_general_css]" value="<?php echo self::get_theme_option( 'lian_general_css' ); ?>"></textarea>
+        <textarea class="lian-code" name="lian_options[lian_general_css]"><?php echo self::get_theme_option( 'lian_general_css' ); ?></textarea>
       </div>
     </div>
 
     <div class="row">
       <div class="col-4"><?php _e( 'Custom JS', 'lian' ); ?></div>
       <div class="col">
-        <textarea class="lian-code" name="lian_options[lian_general_js]" value="<?php echo self::get_theme_option( 'lian_general_js' ); ?>"></textarea>
+        <textarea class="lian-code" name="lian_options[lian_general_js]"><?php echo self::get_theme_option( 'lian_general_js' ); ?></textarea>
       </div>
     </div>
 
