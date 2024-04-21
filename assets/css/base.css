@@ -51,7 +51,7 @@
 .lian-mail:before { content: '\e836'; }
 .lian-warning-empty:before { content: '\e837'; }
 .lian-whatsapp:before { content: '\e838'; }
-.lian-telegram:before { content: '\e839'; }
+.lian-telegram:before { content: '\E80D'; }
 .lian-twitter:before { content: '\e840'; }
 .lian-facebook:before { content: '\e841'; }
 .lian-link:before { content: '\e842'; }
@@ -133,6 +133,12 @@ h6{
 	font-size:var(--h6-font-size);
 	font-weight:var(--h6-font-weight);
 	line-height:var(--h6-line-height);
+}
+a,b,p,span,input,textarea,pre,div{
+	font-family:var(--main-font);
+	font-size:var(--main-font-size);
+	font-weight:var(--main-font-weight);
+	line-height:var(--main-line-height);
 }
 a{
 	color:var(--link-color);
@@ -1774,6 +1780,38 @@ position: absolute;
 	display: inline-block;
 	margin-top: 15px;
 }
+/****************************** Floating Cart - WooCommerce ********************************/
+#lian-floating-cart{
+    position:fixed;
+    bottom: 2vw;
+    left: 2vw;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    background: rgb(85,240,24);
+    background: linear-gradient(357deg, rgb(85 240 24 / 42%) 0%, rgb(0 255 180 / 71%) 100%);
+    cursor: pointer;
+    color: #fff;
+    box-shadow: 0px 0px 60px #00000012;
+    backdrop-filter: blur(8px);
+}
+#lian-floating-cart > div{
+    height:0;
+    opacity:0;
+    visibility:hidden;
+    width: 0;
+}
+#lian-floating-cart:before{
+    content:'\E805';
+    font-family:lian;
+    font-weight: normal;
+    font-size: 26px;
+}
+
 /* Responsive */
 @media screen and (max-width:991px){
 	header.site-header .header-nav .menu{
@@ -1905,6 +1943,15 @@ position: absolute;
     }
 	header.site-header .headerrow .mobile-menu{
 		font-size: 8vw;
+	}
+	#lian-floating-cart{
+		left: 20px;
+		bottom: 20px;
+		width: 50px;
+		height: 50px;
+	}
+	#lian-floating-cart:before{
+		font-size:18px;
 	}
 }
 
