@@ -94,7 +94,7 @@ jQuery(document).ready(function($)  {
       var lianHeaderHeight = $('.site-header.sticky').height();
       if(lianScroll > lianStickySize){
         $('.site-header.sticky').addClass('sticky-do');
-        $('.site-header.sticky').next().css({'padding-top':lianHeaderHeight});
+        //$('.site-header.sticky').next().css({'padding-top':lianHeaderHeight});
       }else{
         $('.site-header.sticky').removeClass('sticky-do');
         $('.site-header.sticky').next().css({'padding-top':''});
