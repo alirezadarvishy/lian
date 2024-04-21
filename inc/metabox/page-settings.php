@@ -11,7 +11,7 @@ function lian_page_settings( $post_type, $post ) {
  */
 function lian_page_settings_mb( $post ) { ?>
     <div class="lian-options">
-        
+        <input type="hidden" name="lian_metabox_nonce" value="<?php echo wp_create_nonce( "lian_metabox_nonce" ); ?>">
         <div class="row">
             <div class="col-4"><?php _e('Lian Page Layout:', 'lian');?></div>
             <div class="col">
@@ -72,35 +72,56 @@ function lian_page_settings_mb( $post ) { ?>
  *  Save
  */
 
-add_action('save_post', function ($post_id) {
-    
-    if (isset($_POST['lian_page_settings_page_layout'])){
-        update_post_meta($post_id, 'lian_page_settings_page_layout', $_POST['lian_page_settings_page_layout']);
+ add_action('save_post', function ($post_id) {
+     
+	if ( ! isset( $_POST['lian_metabox_nonce'] ) ) return;
+
+	if ( ! wp_verify_nonce( $_POST['lian_metabox_nonce'], 'lian_metabox_nonce' ) ) return;
+	
+
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+	
+
+	if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+	
+    // Sanitize and save page layout
+    if (array_key_exists('lian_page_settings_page_layout', $_POST)){
+        $page_layout = sanitize_text_field($_POST['lian_page_settings_page_layout']);
+        update_post_meta($post_id, 'lian_page_settings_page_layout', $page_layout);
     }else{
-        update_post_meta($post_id, 'lian_page_settings_page_layout', '');
+        delete_post_meta($post_id, 'lian_page_settings_page_layout');
     }
     
-    if (isset($_POST['lian_page_settings_title'])){
-        update_post_meta($post_id, 'lian_page_settings_title', $_POST['lian_page_settings_title']);
+    // Sanitize and save title
+    if (array_key_exists('lian_page_settings_title', $_POST)){
+        $title = sanitize_text_field($_POST['lian_page_settings_title']);
+        update_post_meta($post_id, 'lian_page_settings_title', $title);
     }else{
-        update_post_meta($post_id, 'lian_page_settings_title', 0);
+        delete_post_meta($post_id, 'lian_page_settings_title');
     }
     
-    if (isset($_POST['lian_page_settings_breadcrumb'])){
-        update_post_meta($post_id, 'lian_page_settings_breadcrumb', $_POST['lian_page_settings_breadcrumb']);
+    // Sanitize and save breadcrumb
+    if (array_key_exists('lian_page_settings_breadcrumb', $_POST)){
+        $breadcrumb = sanitize_text_field($_POST['lian_page_settings_breadcrumb']);
+        update_post_meta($post_id, 'lian_page_settings_breadcrumb', $breadcrumb);
     }else{
-        update_post_meta($post_id, 'lian_page_settings_breadcrumb', 0);
+        delete_post_meta($post_id, 'lian_page_settings_breadcrumb');
     }
     
-    if(isset($_POST['lian_page_settings_sidebar'])){
-        update_post_meta($post_id, 'lian_page_settings_sidebar', $_POST['lian_page_settings_sidebar']);
+    // Sanitize and save sidebar
+    if(array_key_exists('lian_page_settings_sidebar', $_POST)){
+        $sidebar = sanitize_text_field($_POST['lian_page_settings_sidebar']);
+        update_post_meta($post_id, 'lian_page_settings_sidebar', $sidebar);
     }else{
-        update_post_meta($post_id, 'lian_page_settings_sidebar', 0);
+        delete_post_meta($post_id, 'lian_page_settings_sidebar');
     }
     
-    if(isset($_POST['lian_page_settings_transparent_header'])){
-        update_post_meta($post_id, 'lian_page_settings_transparent_header', $_POST['lian_page_settings_transparent_header']);
+    // Sanitize and save transparent header
+    if(array_key_exists('lian_page_settings_transparent_header', $_POST)){
+        $transparent_header = sanitize_text_field($_POST['lian_page_settings_transparent_header']);
+        update_post_meta($post_id, 'lian_page_settings_transparent_header', $transparent_header);
     }else{
-        update_post_meta($post_id, 'lian_page_settings_transparent_header', 0);
+        delete_post_meta($post_id, 'lian_page_settings_transparent_header');
     }
 });
+
