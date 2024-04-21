@@ -4,7 +4,7 @@
 */
 
 if ( ! defined( 'LIAN_VERSION' ) ) {
-	define( 'LIAN_VERSION', '1.7.2' );
+	define( 'LIAN_VERSION', '1.7.3' );
 }
 
 // LIAN Directory
