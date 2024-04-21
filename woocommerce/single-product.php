@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 <div class="container">
-	<div class="col s9 ms12">
+	<div class="col s12 ms12">
 		<div class="lian-product-archive">
 			<?php
 				/**
@@ -50,14 +50,6 @@ get_header( 'shop' ); ?>
 			?>
 		</div>
 	</div>
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action( 'woocommerce_sidebar' );
-	?>
 </div>
 <?php
 get_footer( 'shop' );
